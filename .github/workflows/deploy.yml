@@ -1,0 +1,88 @@
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Build and Deploy
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Node.js with node_modules cache
+        uses: magnetikonline/action-node-modules-cache@v1
+        with:
+          node-version: "16"
+      - name: 下载依赖
+        run: npm install
+      - name: 构建
+        run: npm run build
+
+#      - name: github pages 部署
+#      # You may pin to the exact commit or the version.
+#        uses: jinjat-data/gh-pages-deploy-action@1.2
+#        with:
+#          # A personal access token needed to push your site after it has been built.
+#          access-token: ${{secrets.ACCESS_TOKEN}}
+#          # The subdirectory that your build command outputs your site assets to.
+#          source-directory: docs/.vuepress/dist
+#          # The branch expected by GitHub to have the static files needed for your site.
+#          deploy-branch: gh-pages
+#          # The custom domain you want your Github Pages site to be served from.
+#          # custom-domain: # optional, default is
+
+      - name: github pages 部署
+        # You may pin to the exact commit or the version.
+        # uses: crazy-max/ghaction-github-pages@c0d7ff0487ee0415efb7f32dab10ea880330b1dd
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        with:
+          # Git domain (default github.com)
+          domain: github.com
+          # GitHub repository where assets will be deployed (default $GITHUB_REPOSITORY)
+#          repo: $GITHUB_TOKEN
+          # Git branch where assets will be deployed
+          target_branch: gh-pages
+          # Create incremental commit instead of doing push force
+          keep_history: false
+          # Allow an empty commit to be created
+          allow_empty_commit: true
+          # Build directory to deploy
+          build_dir: docs/.vuepress/dist
+          # Whether to treat build_dir as an absolute path
+          # The committer name and email address
+          committer: 'soyof<807781817@qq.com>'
+          # The author name and email address
+          author: 'soyof<807781817@qq.com>'
+          absolute_build_dir: false
+          # If enabled, the content of symbolic links will be copied
+          follow_symlinks: false
+          # Commit message
+          commit_message: '构建github pages'
+          # Allow Jekyll to build your site
+          jekyll: true
+          # If enabled, nothing will be pushed
+          dry_run: false
+          # Enable verbose output
+          verbose: false
+
