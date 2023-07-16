@@ -5,7 +5,7 @@ module.exports = (options, ctx) => {
   return {
     name: 'vuepress-plugins-code-preview',
     enhanceAppFiles: [
-      path.resolve(__dirname, 'enhanceAppFile.js')
+      path.resolve(__dirname, './enhanceAppFile.js')
     ],
     plugins: [
       [

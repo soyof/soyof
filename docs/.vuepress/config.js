@@ -1,4 +1,4 @@
-const codePreview = require('./plugins/vuepress-plugins-code-preview')
+// const codePreview = require('./plugins/vuepress-plugin-code-previews')
 const { formatDate } = require('./utils/utils')
 module.exports = {
   title: 'Soyo.F BLOG',
@@ -49,7 +49,7 @@ module.exports = {
         return formatDate(timestamp, 'yyyy-MM-dd hh:mm:ss')
       }
     }],
-    [codePreview, { copyTips: 'copied' }],
+    ['code-previews', { copyTips: 'copied' }],
     [
       'reading-progress',
       {

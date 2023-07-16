@@ -44,11 +44,11 @@
     </div>
     <transition
       v-if="isOnlyShowComp === 'false'"
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @after-enter="afterEnterOrLevel"
-      @leave="leave"
-      @after-leave="afterEnterOrLevel"
+      @before-enter="handleBeforeEnterOrLeve"
+      @enter="handleEnter"
+      @after-enter="handleAfterEnterOrLevel"
+      @leave="handleBeforeEnterOrLeve"
+      @after-leave="handleAfterEnterOrLevel"
     >
       <div v-if="showCode" class="code-wrap">
         <slot></slot>
@@ -128,19 +128,15 @@ export default {
     handleShowAndHideCode(flag) {
       this.showCode = flag
     },
-    beforeEnter(el) {
-      el.classList.add('code-wrap-transition')
-      el.style.height = '0'
-    },
-    enter(el) {
-      el.style.height = el.scrollHeight + 'px'
-    },
-    afterEnterOrLevel(el) {
-      el.classList.remove('code-wrap-transition')
-    },
-    leave(el) {
+    handleBeforeEnterOrLeve(el) {
       el.classList.add('code-wrap-transition')
       el.style.height = 0
+    },
+    handleEnter(el) {
+      el.style.height = `${el.scrollHeight}px`
+    },
+    handleAfterEnterOrLevel(el) {
+      el.classList.remove('code-wrap-transition')
     }
   }
 }
