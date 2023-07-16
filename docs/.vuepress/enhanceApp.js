@@ -6,12 +6,13 @@ import './assets/iconfonts/iconfont.css'
 Vue.use(ElementUI)
 
 export default ({ Vue, router }) => {
-  if (typeof process === 'undefined') {
-    import('tinymce-vue-h/dist/tinymce-vue-h.umd').then(comp => {
-      Vue.use(comp.default)
-    })
-  }
   router.beforeEach((to, from, next) => {
+    console.log(to, from)
+    if (typeof process === 'undefined') {
+      import('tinymce-vue-h/dist/tinymce-vue-h.umd').then(comp => {
+        Vue.use(comp.default)
+      })
+    }
     // 触发百度的pv统计
     if (typeof _hmt !== 'undefined') {
       if (to.path) {
