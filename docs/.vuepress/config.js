@@ -27,8 +27,7 @@ module.exports = {
         { text: 'code-preview', link: '/pages/c5a9c9/' }
       ]
       },
-      { text: 'Github', link: 'https://github.com/dashboard' },
-      { text: 'Gitee', link: 'https://gitee.com/Mr_H_OS' }
+      { text: 'Github', link: 'https://github.com/dashboard' }
     ],
     sidebar: 'structuring'
   },
