@@ -1,0 +1,18 @@
+{
+  "name": "vuepress-plugins-code-preview",
+  "version": "1.0.0",
+  "description": "vuepress plugins code preview",
+  "main": "index.js",
+  "author": "soyof",
+  "keywords": [
+    "plugins",
+    "vuepress-plugins",
+    "vuepress",
+    "code",
+    "code-preview"
+  ],
+  "dependencies": {
+    "prismjs": "^1.29.0"
+  },
+  "license": "MIT"
+}

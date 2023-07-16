@@ -1,0 +1,54 @@
+.page * {
+  //max-width: 100% !important;
+}
+.sidebar-button {
+  color: #fff
+  background-color: #000
+  opacity: .2
+  &:hover {
+    opacity: 1
+  }
+}
+
+.reading-progress {
+  .progress {
+    background-color: #f5222d !important
+  }
+}
+
+.theme-vdoing-content pre code {
+  white-space: pre-wrap
+}
+
+.card-box {
+  border-radius: 15px
+}
+
+.banner-conent {
+  #main-title {
+    background: linear-gradient(to right, red, orange, yellow, cyan, blue, purple)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    animation:  hue 3s linear infinite
+  }
+}
+
+.site-name {
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  animation:  hue 3s linear infinite
+}
+
+@keyframes hue {
+  0% {
+    filter: hue-rotate(0deg)
+  }
+
+  50% {
+    filter: hue-rotate(180deg)
+  }
+  100% {
+    filter: hue-rotate(360deg)
+  }
+}

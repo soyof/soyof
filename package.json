@@ -1,0 +1,47 @@
+{
+  "name": "soyo_f_blog",
+  "version": "1.0.0",
+  "description": "Soyo.F BLOG",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "keywords": [
+    "javascript",
+    "vue",
+    "html",
+    "css"
+  ],
+  "author": "Mr.H",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.9.9",
+    "@vuepress/plugin-last-updated": "^1.9.9",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "vuepress": "^1.9.9",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-cursor-effects": "^1.1.6",
+    "vuepress-plugin-dynamic-title": "^1.0.0",
+    "vuepress-plugin-element-ui": "^1.1.0",
+    "vuepress-plugin-fulltext-search": "^2.2.1",
+    "vuepress-plugin-go-top": "^1.0.4",
+    "vuepress-plugin-live2d": "0.0.7",
+    "vuepress-plugin-reading-progress": "^1.0.10",
+    "vuepress-plugin-ribbon": "^1.1.6",
+    "vuepress-plugin-thirdparty-search": "^1.0.2",
+    "vuepress-theme-vdoing": "^1.12.8"
+  },
+  "dependencies": {
+    "@vssue/api-github-v4": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
+    "element-ui": "^2.15.13",
+    "highlight.js": "^10.7.3",
+    "prismjs": "^1.29.0",
+    "tinymce": "^5.10.7",
+    "tinymce-vue-h": "^5.10.7",
+    "vssue": "^1.4.8",
+    "vue": "^2.7.0"
+  }
+}
