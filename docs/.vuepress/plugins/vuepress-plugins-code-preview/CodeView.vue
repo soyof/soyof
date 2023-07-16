@@ -15,6 +15,13 @@
         >
           <path d="M571.52 909.44H280.96c-61.44 0-111.36-49.92-111.36-111.36V387.2c0-61.44 49.92-111.36 111.36-111.36h290.56c61.44 0 111.36 49.92 111.36 111.36v410.88c0 61.44-49.92 111.36-111.36 111.36z m-290.56-569.6c-26.24 0-47.36 21.12-47.36 47.36v410.88c0 26.24 21.12 47.36 47.36 47.36h290.56c26.24 0 47.36-21.12 47.36-47.36V387.2c0-26.24-21.12-47.36-47.36-47.36H280.96z" fill="#409eff" p-id="3364" /><path d="M775.68 742.4c-17.92 0-32-14.08-32-32V333.44c0-66.56-53.76-120.32-120.32-120.32h-256c-17.92 0-32-14.08-32-32s14.08-32 32-32h256c101.76 0 184.32 82.56 184.32 184.32V710.4c0 17.28-14.08 32-32 32z" fill="#409eff" p-id="3365" />
         </svg>
+        <transition
+          name="animate__animated animate__fadeIn"
+          enter-active-class="animate__fadeInRight"
+          leave-active-class="animate__fadeOutLeft"
+        >
+          <span v-if="isShowTips" class="code-view-tips">{{ copytips || '复制成功' }}</span>
+        </transition>
       </span>
       <span :title="showCode ? '隐藏源码' : '查看源码'">
         <svg
@@ -64,12 +71,30 @@ export default {
       default() {
         return ''
       }
+    },
+    copytips: { // 复制成功提示语
+      type: String,
+      required: false,
+      default() {
+        return '复制成功'
+      }
+    },
+    tipstimes: { // 设置复制成功提示停留时间
+      type: Number,
+      required: false,
+      default() {
+        return 1000
+      }
     }
   },
   data() {
     return {
-      showCode: false
+      showCode: false,
+      isShowTips: false
     }
+  },
+  mounted() {
+    console.log(this.copytips)
   },
   methods: {
     handleCopyCode() {
@@ -79,7 +104,11 @@ export default {
       input.select()
       document.execCommand('Copy')
       input.remove()
-      this.$message.success('复制成功')
+      this.isShowTips = true
+      const timer = setTimeout(_ => {
+        this.isShowTips = false
+        clearTimeout(timer)
+      }, this.tipstimes || 1000)
     },
     handleShowAndHideCode(flag) {
       this.showCode = flag
@@ -103,14 +132,17 @@ export default {
 </script>
 
 <style scoped>
+@import "./animate.css";
 .code-view {
   width: 100%;
 }
+
 .code-view .comp-wrap {
   padding: 10px;
   border: 1px solid #eaeefb;
 }
 .code-preview-btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: right;
@@ -127,6 +159,22 @@ export default {
 }
 .code-preview-btn span {
   margin-left: 8px;
+}
+.code-view .code-preview-btn .code-view-tips {
+  position: absolute;
+  right: 25px;
+  top: -20px;
+  padding: 3px 5px;
+  font-size: 12px;
+  background-color: #91caff;
+  z-index: 99999;
+  border-radius: 5px;
+  color: #fff;
+  transition: top .5s ease-in-out;
+}
+
+.code-view .code-preview-btn .code-view-tips:hover {
+  color: #fff;
 }
 
 .code-preview-btn:hover {

@@ -7,12 +7,8 @@ Vue.use(ElementUI)
 
 export default ({ Vue, router }) => {
   if (typeof process === 'undefined') {
-    Vue.mixin({
-      mounted() {
-        import('tinymce-vue-h').then(comp => {
-          Vue.use(comp.default)
-        })
-      }
+    import('tinymce-vue-h').then(comp => {
+      Vue.use(comp.default)
     })
   }
   router.beforeEach((to, from, next) => {
