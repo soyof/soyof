@@ -23,7 +23,9 @@ module.exports = {
     logo: '/images/dog.png',
     nav: [
       { text: '插件', items: [
-        { text: 'tinymce-vue-h', link: '/pages/865b99/' }]
+        { text: 'tinymce-vue-h', link: '/pages/865b99/' },
+        { text: 'code-preview', link: '/pages/c5a9c9/' }
+      ]
       },
       { text: 'Github', link: 'https://github.com/dashboard' },
       { text: 'Gitee', link: 'https://gitee.com/Mr_H_OS' }
