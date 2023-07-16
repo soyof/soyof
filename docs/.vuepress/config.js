@@ -18,7 +18,10 @@ module.exports = {
     `]
   ],
   themeConfig: {
-    footer: '',
+    footer: {
+      createYear: 2023,
+      copyrightInfo: 'Soyo.F | MIT Licensed'
+    },
     lastUpdated: '上次更新',
     logo: '/images/dog.png',
     nav: [
