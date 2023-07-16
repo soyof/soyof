@@ -7,7 +7,7 @@ Vue.use(ElementUI)
 
 export default ({ Vue, router }) => {
   if (typeof process === 'undefined') {
-    import('tinymce-vue-h').then(comp => {
+    import('tinymce-vue-h/dist/tinymce-vue-h.umd').then(comp => {
       Vue.use(comp.default)
     })
   }
