@@ -49,7 +49,7 @@ module.exports = {
         return formatDate(timestamp, 'yyyy-MM-dd hh:mm:ss')
       }
     }],
-    codePreview,
+    [codePreview, { copyTips: 'copied' }],
     [
       'reading-progress',
       {

@@ -4,11 +4,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/iconfonts/iconfont.css'
 // 引入elementUI
 Vue.use(ElementUI)
-if (typeof process === 'undefined') {
-  import('tinymce-vue-h/dist/tinymce-vue-h.umd').then(comp => {
-    Vue.use(comp.default)
-  })
-}
 
 export default ({ Vue, router }) => {
   router.beforeEach((to, from, next) => {

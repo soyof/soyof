@@ -1,18 +1,16 @@
-<!-- SSR渲染 浏览器渲染 均可使用 -->
 <template>
   <div class="editor-wrap">
-    <component
-      :is="component"
-      v-if="component"
-      v-model="editVal"
-      :init="tinymceInit"
-    />
+    <TinymceVueH v-model="editVal" :init="tinymceInit" />
   </div>
 </template>
 
 <script>
+import TinymceVueH from 'tinymce-vue-h'
 export default {
   name: 'TinymceTmp',
+  components: {
+    TinymceVueH
+  },
   data() {
     return {
       component: null,
@@ -28,11 +26,6 @@ export default {
         toolbar: 'fontselect styleselect fontsizeselect restoredraft undo redo bold italic underline strikethrough subscript superscript removeformat forecolor backcolor lineheight align outdent indent help'
       }
     }
-  },
-  mounted() {
-    import('tinymce-vue-h').then(res => {
-      this.component = res.default
-    })
   }
 }
 </script>
