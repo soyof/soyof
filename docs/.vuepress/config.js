@@ -113,7 +113,7 @@ module.exports = {
       {
         showIcon: '/soyof/favicon.ico',
         showText: '(/≧▽≦/)咦！又好了！',
-        hideIcon: '/soyof/images/funny256.ico',
+        hideIcon: '/soyof/images/felbad256.ico',
         hideText: '(●—●)喔哟，崩溃啦！',
         recoverTime: 2000
       }
@@ -139,16 +139,6 @@ module.exports = {
         clientSecret: 'c2bf8eb2f5e8e572bca2949026c34ea1e2fbc703'
       }
     ],
-    // 阅读时间配置
-    [
-      "reading-time1",
-      {
-        wordPerminute: 300, // 每分钟阅读字数
-      },
-    ],
-    [
-      'photo-swipe',
-      { delay: 500 }
-    ]
+    ['@vuepress/medium-zoom', { selector: 'img', }]
   ]
 }

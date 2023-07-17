@@ -17,6 +17,7 @@
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.9.9",
     "@vuepress/plugin-last-updated": "^1.9.9",
+    "@vuepress/plugin-medium-zoom": "^1.9.9",
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.3",
@@ -37,6 +38,7 @@
   "dependencies": {
     "@vssue/api-github-v4": "^1.4.7",
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
+    "busuanzi.pure.js": "^1.0.3",
     "element-ui": "^2.15.13",
     "highlight.js": "^10.7.3",
     "prismjs": "^1.29.0",
