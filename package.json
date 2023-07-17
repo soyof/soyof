@@ -17,7 +17,6 @@
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.9.9",
     "@vuepress/plugin-last-updated": "^1.9.9",
-    "@vuepress/plugin-medium-zoom": "^1.9.9",
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.3",
@@ -29,6 +28,7 @@
     "vuepress-plugin-element-ui": "^1.1.0",
     "vuepress-plugin-fulltext-search": "^2.2.1",
     "vuepress-plugin-go-top": "^1.0.4",
+    "vuepress-plugin-image-viewer": "^1.1.7",
     "vuepress-plugin-live2d": "0.0.7",
     "vuepress-plugin-reading-progress": "^1.0.10",
     "vuepress-plugin-ribbon": "^1.1.6",
@@ -44,7 +44,9 @@
     "prismjs": "^1.29.0",
     "tinymce": "^5.10.7",
     "tinymce-vue-h": "^5.10.7",
+    "valine": "^1.5.1",
     "vssue": "^1.4.8",
-    "vue": "^2.7.0"
+    "vue": "^2.7.0",
+    "vuepress-plugin-comment": "^0.7.3"
   }
 }
