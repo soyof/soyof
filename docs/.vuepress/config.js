@@ -1,12 +1,13 @@
-// const codePreview = require('./plugins/vuepress-plugin-code-previews')
+// const vdoing = require('./plugins/vuepress-theme-vdoing')
 const { formatDate } = require('./utils/utils')
 module.exports = {
   title: 'Soyo.F BLOG',
   description: '这算是描述吧！！！',
   base: '/soyof/', // 使用相对路径，读取相对路径下的静态文件
-  theme: 'vdoing',
+  theme: require.resolve('./plugins/vuepress-theme-vdoing'),
   head: [
     ['link', { rel: 'icon', href: '/soyof/favicon.ico' }],
+    ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
     ['script', {}, `
       var _hmt = _hmt || [];
       (function() {
@@ -18,9 +19,10 @@ module.exports = {
     `]
   ],
   themeConfig: {
+    isShowReadTime: true,
     footer: {
       createYear: 2023,
-      copyrightInfo: 'Soyo.F | MIT Licensed'
+      copyrightInfo: 'Soyo.F | ISC Licensed'
     },
     lastUpdated: '上次更新',
     logo: '/images/dog.png',
@@ -111,7 +113,7 @@ module.exports = {
       {
         showIcon: '/soyof/favicon.ico',
         showText: '(/≧▽≦/)咦！又好了！',
-        hideIcon: '/soyof/images/felbad.ico',
+        hideIcon: '/soyof/images/funny256.ico',
         hideText: '(●—●)喔哟，崩溃啦！',
         recoverTime: 2000
       }
@@ -136,6 +138,17 @@ module.exports = {
         clientId: '53478b88cf84092bc037',
         clientSecret: 'c2bf8eb2f5e8e572bca2949026c34ea1e2fbc703'
       }
+    ],
+    // 阅读时间配置
+    [
+      "reading-time1",
+      {
+        wordPerminute: 300, // 每分钟阅读字数
+      },
+    ],
+    [
+      'photo-swipe',
+      { delay: 500 }
     ]
   ]
 }
