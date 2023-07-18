@@ -1,5 +1,6 @@
 // const vdoing = require('./plugins/vuepress-theme-vdoing')
 const { formatDate } = require('./utils/utils')
+const { pwd } = require('./global/global')
 module.exports = {
   title: 'Soyo.F BLOG',
   description: '这算是描述吧！！！',
@@ -170,16 +171,16 @@ module.exports = {
           emojiMaps: null
         }
       }
+    ],
+    [
+      'posts-encrypt',
+      {
+        route: '/auth',
+        passwd: pwd,
+        encryptInDev: true,
+        // expires: false,
+        checkAll: false
+      }
     ]
-    // [
-    //   'posts-encrypt',
-    //   {
-    //     route: '/auth',
-    //     passwd: 123456,
-    //     encryptInDev: true,
-    //     expires: 1000 * 60,
-    //     checkAll: true
-    //   }
-    // ]
   ]
 }

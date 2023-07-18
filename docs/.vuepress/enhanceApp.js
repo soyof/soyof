@@ -6,6 +6,9 @@ import './assets/iconfonts/iconfont.css'
 Vue.use(ElementUI)
 
 export default ({ Vue, router }) => {
+  if (typeof window !== 'undefined') {
+    window.AV = require('leancloud-storage')
+  }
   router.beforeEach((to, from, next) => {
     // 触发百度的pv统计
     if (typeof _hmt !== 'undefined') {
