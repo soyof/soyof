@@ -161,7 +161,7 @@ module.exports = {
           highlight: true,
           avatarForce: false,
           recordIP: true,
-          serverURLs: 'errd2ef6.api.lncldglobal.com',
+          serverURLs: 'https://errd2ef6.api.lncldglobal.com',
           requiredFields: [],
           enableQQ: true,
           avatar: 'monsterid',
