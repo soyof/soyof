@@ -9,14 +9,15 @@ module.exports = {
     ['link', { rel: 'icon', href: '/soyof/favicon.ico' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
     ['script', {}, `
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?aff4517848b734ae9374d9c99ecbbc51";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-      })();
-    `]
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff4517848b734ae9374d9c99ecbbc51";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      `
+    ]
   ],
   themeConfig: {
     isShowReadTime: true,

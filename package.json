@@ -43,6 +43,7 @@
     "busuanzi.pure.js": "^1.0.3",
     "element-ui": "^2.15.13",
     "highlight.js": "^10.7.3",
+    "leancloud-storage": "^4.15.0",
     "prismjs": "^1.29.0",
     "tinymce": "^5.10.7",
     "tinymce-vue-h": "^5.10.7",
