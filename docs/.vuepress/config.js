@@ -113,7 +113,7 @@ module.exports = {
       {
         showIcon: '/soyof/favicon.ico',
         showText: '(/≧▽≦/)咦！又好了！',
-        hideIcon: '/soyof/images/felbad256.ico',
+        hideIcon: '/soyof/images/funny265.ico',
         hideText: '(●—●)喔哟，崩溃啦！',
         recoverTime: 2000
       }
@@ -139,6 +139,36 @@ module.exports = {
         clientSecret: 'c2bf8eb2f5e8e572bca2949026c34ea1e2fbc703'
       }
     ],
-    ['@vuepress/medium-zoom', { selector: 'img', }]
+    [
+      'vuepress-plugin-image-viewer',
+      {
+        selector: '.theme-vdoing-content' // 你想要的插件起作用的页面的class或id
+      }
+    ],
+    [
+      'vuepress-plugin-comment',
+      {
+        choosen: 'valine',
+        options: {
+          el: '#valine-vuepress-comment',
+          appId: 'ErrD2Ef6tawtDoG7CYDLGZT4-MdYXbMMI',
+          appKey: 'yDTo3JsGFGAWKgN3nslMRSXs',
+          pageSize: 10,
+          placeholder: '有什么建议请告诉我...',
+          meta: ['nick', 'mail', 'link'],
+          lang: 'zh-CN',
+          visitor: true,
+          highlight: true,
+          avatarForce: false,
+          recordIP: true,
+          serverURLs: 'errd2ef6.api.lncldglobal.com',
+          requiredFields: [],
+          enableQQ: true,
+          avatar: 'monsterid',
+          emojiCDN: 'https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/',
+          emojiMaps: null
+        }
+      }
+    ]
   ]
 }
