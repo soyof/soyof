@@ -9,7 +9,7 @@ const handleBaseUrl = (direct) => {
     if (path.extname(direct) === '.html' || path.extname(direct) === '.js' || path.extname(direct) === '.css') {
       const fileContent = fs.readFileSync(direct, 'utf-8')
       // 替换文件中的文本
-      const updatedContent = fileContent.replace('/soyof/', '/')
+      const updatedContent = fileContent.replace(/\/soyof\//g, '/')
       // 将替换后的内容写回文件
       fs.writeFileSync(direct, updatedContent, 'utf-8')
     }
