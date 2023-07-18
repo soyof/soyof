@@ -170,5 +170,15 @@ module.exports = {
         }
       }
     ]
+    // [
+    //   'posts-encrypt',
+    //   {
+    //     route: '/auth',
+    //     passwd: 123456,
+    //     encryptInDev: true,
+    //     expires: 1000 * 60,
+    //     checkAll: true
+    //   }
+    // ]
   ]
 }
