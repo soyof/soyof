@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
+    "buildVercel": "node ./script/changeBaseUrl.js",
     "copyMdToDist": "node ./script/changeMdToDist.js"
   },
   "keywords": [
