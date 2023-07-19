@@ -29,9 +29,7 @@
         <div class="author iconfont icon-touxiang" title="作者" v-if="author">
           <a
             :href="author.href || author.link"
-            v-if="
-              author.href || (author.link && typeof author.link === 'string')
-            "
+            v-if="author.href || (author.link && typeof author.link === 'string')"
             target="_blank"
             class="beLink"
             title="作者"
@@ -42,15 +40,7 @@
         <div class="date iconfont icon-riqi" title="创建时间" v-if="date">
           <a href="javascript:;">{{ date }}</a>
         </div>
-        <div
-          class="date iconfont icon-wenjian"
-          title="分类"
-          v-if="
-            $themeConfig.category !== false &&
-            !(classify1 && classify1 !== '_posts') &&
-            categories
-          "
-        >
+        <div class="date iconfont icon-wenjian" title="分类" v-if="$themeConfig.category !== false && !(classify1 && classify1 !== '_posts') && categories">
           <router-link
             :to="`/categories/?category=${encodeURIComponent(item)}`"
             v-for="(item, index) in categories"
@@ -60,11 +50,15 @@
         </div>
       </div>
     </div>
+    <PageInfo />
   </div>
 </template>
 
 <script>
+import PageInfo from './PageInfo.vue';
+
 export default {
+  components: { PageInfo },
   data() {
     return {
       date: '',

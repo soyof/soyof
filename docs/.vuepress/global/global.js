@@ -1,3 +1,4 @@
 module.exports = {
-  pwd: 'somuns'
+  pwd: 'somuns',
+  soyofGithub: 'https://github.com/dashboard'
 }
