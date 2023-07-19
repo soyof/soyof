@@ -178,6 +178,7 @@ module.exports = {
       'vuepress-plugin-comment',
       {
         choosen: 'valine',
+        visitor: true, // 阅读量统计
         options: {
           el: '#valine-vuepress-comment',
           appId: 'ErrD2Ef6tawtDoG7CYDLGZT4-MdYXbMMI',
