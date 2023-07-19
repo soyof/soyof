@@ -1,82 +1,88 @@
 <template>
-  <div class="post-list" ref="postList">
+  <div ref="postList" class="post-list">
     <transition-group tag="div" name="post">
       <div
-        class="post card-box"
-        :class="item.frontmatter.sticky && 'iconfont icon-zhiding'"
         v-for="item in sortPosts"
         :key="item.key"
+        class="post card-box"
+        :class="item.frontmatter.sticky && 'iconfont icon-zhiding'"
       >
         <div class="title-wrapper">
           <h2>
             <router-link :to="item.path">
               {{ item.title }}
-              <span class="title-tag" v-if="item.frontmatter.titleTag">{{
-                item.frontmatter.titleTag
-              }}</span>
+              <span v-if="item.frontmatter.titleTag" class="title-tag">
+                {{
+                  item.frontmatter.titleTag
+                }}
+              </span>
             </router-link>
           </h2>
           <div class="article-info">
             <a
+              v-if="item.author && item.author.href"
               title="作者"
               class="iconfont icon-touxiang"
               target="_blank"
-              v-if="item.author && item.author.href"
               :href="item.author.href"
-              >{{ item.author.name ? item.author.name : item.author }}</a
             >
+              {{ item.author.name ? item.author.name : item.author }}
+            </a>
             <span
+              v-else-if="item.author"
               title="作者"
               class="iconfont icon-touxiang"
-              v-else-if="item.author"
-              >{{ item.author.name ? item.author.name : item.author }}</span
             >
+              {{ item.author.name ? item.author.name : item.author }}
+            </span>
 
             <span
+              v-if="item.frontmatter.date"
               title="创建时间"
               class="iconfont icon-riqi"
-              v-if="item.frontmatter.date"
-              >{{ item.frontmatter.date.split(' ')[0] }}</span
             >
-            <span
-              title="分类"
-              class="iconfont icon-wenjian"
-              v-if="
-                $themeConfig.category !== false && item.frontmatter.categories
-              "
-            >
-              <router-link
-                :to="`/categories/?category=${encodeURIComponent(c)}`"
-                v-for="(c, index) in item.frontmatter.categories"
-                :key="index"
-                >{{ c }}</router-link
-              >
+              {{ item.frontmatter.date.split(' ')[0] }}
             </span>
             <span
-              title="标签"
-              class="iconfont icon-biaoqian tags"
-              v-if="
-                $themeConfig.tag !== false &&
-                item.frontmatter.tags &&
-                item.frontmatter.tags[0]
-              "
+              v-if="$themeConfig.category !== false && item.frontmatter.categories"
+              title="分类"
+              class="iconfont icon-wenjian"
             >
               <router-link
-                :to="`/tags/?tag=${encodeURIComponent(t)}`"
+                v-for="(c, index) in item.frontmatter.categories"
+                :key="index"
+                :to="`/categories/?category=${encodeURIComponent(c)}`"
+              >
+                {{ c }}
+              </router-link>
+            </span>
+            <span
+              v-if="
+                $themeConfig.tag !== false &&
+                  item.frontmatter.tags &&
+                  item.frontmatter.tags[0]
+              "
+              title="标签"
+              class="iconfont icon-biaoqian tags"
+            >
+              <router-link
                 v-for="(t, index) in item.frontmatter.tags"
                 :key="index"
-                >{{ t }}</router-link
+                :to="`/tags/?tag=${encodeURIComponent(t)}`"
               >
+                {{ t }}
+              </router-link>
             </span>
           </div>
         </div>
-        <div class="excerpt-wrapper" v-if="item.excerpt">
+        <div v-if="item.excerpt" class="excerpt-wrapper">
           <div class="excerpt" v-html="item.excerpt"></div>
           <router-link
             :to="item.path"
             class="readmore iconfont icon-jiantou-you"
-            >阅读全文</router-link
           >
+            阅读全文
+          </router-link>
         </div>
       </div>
     </transition-group>
@@ -109,12 +115,6 @@ export default {
       postListOffsetTop: 0
     }
   },
-  created() {
-    this.setPosts()
-  },
-  mounted() {
-    // this.postListOffsetTop = this.getElementToPageTop(this.$refs.postList) - 240
-  },
   watch: {
     currentPage() {
       if (this.$route.query.p != this.currentPage) { // 此判断防止添加相同的路由信息（如浏览器回退时触发的）
@@ -137,6 +137,12 @@ export default {
       this.setPosts()
     }
   },
+  created() {
+    this.setPosts()
+  },
+  mounted() {
+    // this.postListOffsetTop = this.getElementToPageTop(this.$refs.postList) - 240
+  },
   methods: {
     setPosts() {
       const currentPage = this.currentPage
@@ -152,7 +158,7 @@ export default {
       }
 
       this.sortPosts = posts.slice((currentPage - 1) * perPage, currentPage * perPage)
-    },
+    }
     // getElementToPageTop(el) {
     //   if(el && el.parentElement) {
     //     return this.getElementToPageTop(el.parentElement) + el.offsetTop
