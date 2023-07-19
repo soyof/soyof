@@ -1,10 +1,10 @@
 const fs = require('fs')
 const path = require('path')
+const chalk = require('chalk')
 
 const distPath = path.join(__dirname, '../dist')
 
 const handleBaseUrl = (direct) => {
-  console.log(direct)
   if (fs.statSync(direct).isFile()) {
     if (path.extname(direct) === '.html' || path.extname(direct) === '.js' || path.extname(direct) === '.css') {
       const fileContent = fs.readFileSync(direct, 'utf-8')
@@ -12,6 +12,7 @@ const handleBaseUrl = (direct) => {
       const updatedContent = fileContent.replace(/\/soyof\//g, '/')
       // 将替换后的内容写回文件
       fs.writeFileSync(direct, updatedContent, 'utf-8')
+      console.log(chalk.blue(direct))
     }
     return true
   }
