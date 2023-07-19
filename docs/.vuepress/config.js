@@ -178,8 +178,8 @@ module.exports = {
         route: '/auth',
         passwd: pwd,
         encryptInDev: true,
-        // expires: false,
-        checkAll: false
+        expires: 60 * 1000,
+        checkAll: true
       }
     ]
   ]
