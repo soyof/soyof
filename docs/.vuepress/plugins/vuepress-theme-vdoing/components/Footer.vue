@@ -1,16 +1,16 @@
 <template>
   <div class="footer">
-    <div class="icons" v-if="social && social.icons">
+    <div v-if="social && social.icons" class="icons">
       <a
+        v-for="(item, index) in social.icons"
+        :key="index"
         :href="item.link"
         :title="item.title"
         :class="['iconfont', item.iconClass]"
-        v-for="(item, index) in social.icons"
-        :key="index"
         target="_blank"
       ></a>
     </div>
-    <PagesCount></PagesCount>
+    <PagesCount v-if="isShowPagesCount" />
     <template v-if="footer">
       Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
       <span v-html="footer.copyrightInfo"></span>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import PagesCount from "../../../components/PagesCount.vue";
+import PagesCount from '../../../components/PagesCount.vue'
 export default {
   components: {
     PagesCount
@@ -30,6 +30,9 @@ export default {
     },
     footer() {
       return this.$themeConfig.footer
+    },
+    isShowPagesCount() {
+      return this.$route.path !== '/'
     }
   }
 }

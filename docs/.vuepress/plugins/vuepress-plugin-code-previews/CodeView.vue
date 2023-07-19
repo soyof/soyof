@@ -178,13 +178,25 @@ export default {
   text-overflow: ellipsis;
 }
 .code-preview-btn .code-preview-btn-right {
-  min-width: 60px;
-  max-width: 60px;
-  width: 60px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  min-width: 70px;
+  max-width: 70px;
+  width: 70px;
+  text-align: right;
 }
 .code-preview-btn .code-preview-btn-right span {
   cursor: pointer;
   margin-left: 8px;
+}
+.code-preview-btn .code-preview-btn-right span:first-child {
+  margin-left: 0;
+}
+
+.code-preview-btn .code-preview-btn-right span .icon:last-child {
+  margin-right: 0;
 }
 .code-view .code-preview-btn .code-view-tips {
   position: absolute;

@@ -1,4 +1,5 @@
 // const vdoing = require('./plugins/vuepress-theme-vdoing')
+// const codePreview = require('./plugins/vuepress-plugin-code-previews')
 const { formatDate } = require('./utils/utils')
 const { readEachFileWords } = require('./utils/readFile')
 const { soyofGithub } = require('./global/global')
@@ -10,7 +11,7 @@ module.exports = {
   theme: require.resolve('./plugins/vuepress-theme-vdoing'),
   head: [
     ['link', { rel: 'icon', href: '/soyof/favicon.ico' }],
-    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_4164376_5gvlznz6hy6.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_4164376_oaddkig8dzb.css' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
     ['script', {}, `
         var _hmt = _hmt || [];
