@@ -171,16 +171,6 @@ module.exports = {
           emojiMaps: null
         }
       }
-    ],
-    [
-      'posts-encrypt',
-      {
-        route: '/auth',
-        passwd: pwd,
-        encryptInDev: true,
-        expires: 60 * 1000,
-        checkAll: true
-      }
     ]
   ]
 }

@@ -32,7 +32,6 @@
     "vuepress-plugin-go-top": "^1.0.4",
     "vuepress-plugin-image-viewer": "^1.1.7",
     "vuepress-plugin-live2d": "0.0.7",
-    "vuepress-plugin-posts-encrypt": "^0.1.0",
     "vuepress-plugin-reading-progress": "^1.0.10",
     "vuepress-plugin-ribbon": "^1.1.6",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
