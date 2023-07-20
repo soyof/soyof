@@ -13,6 +13,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/soyof/favicon.ico' }],
     ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_4164376_oaddkig8dzb.css' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
+    ['script', { src: 'https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js' }],
     ['script', {}, `
         var _hmt = _hmt || [];
         (function() {
@@ -79,6 +80,10 @@ module.exports = {
     {
       name: 'custom-plugins',
       globalUIComponents: ['GlobalTip'] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
+    },
+    {
+      name: 'custom-plugins',
+      globalUIComponents: ['Twikoo'] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
     },
     ['@vuepress/last-updated', {
       transformer: (timestamp) => {
@@ -174,33 +179,33 @@ module.exports = {
       {
         selector: '.theme-vdoing-content' // 你想要的插件起作用的页面的class或id
       }
-    ],
-    [
-      'vuepress-plugin-comment',
-      {
-        choosen: 'valine',
-        visitor: true, // 阅读量统计
-        options: {
-          el: '#valine-vuepress-comment',
-          appId: 'ErrD2Ef6tawtDoG7CYDLGZT4-MdYXbMMI',
-          appKey: 'yDTo3JsGFGAWKgN3nslMRSXs',
-          pageSize: 10,
-          placeholder: '有什么建议请告诉我...',
-          meta: ['nick', 'mail', 'link'],
-          lang: 'zh-CN',
-          visitor: true,
-          highlight: true,
-          avatarForce: false,
-          recordIP: true,
-          serverURLs: 'https://errd2ef6.api.lncldglobal.com',
-          requiredFields: [],
-          enableQQ: true,
-          avatar: 'monsterid',
-          emojiCDN: 'https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/',
-          emojiMaps: null,
-          path: '<%- frontmatter.to.path %>'
-        }
-      }
     ]
+    // [
+    //   'vuepress-plugin-comment',
+    //   {
+    //     choosen: 'valine',
+    //     visitor: true, // 阅读量统计
+    //     options: {
+    //       el: '#valine-vuepress-comment',
+    //       appId: 'ErrD2Ef6tawtDoG7CYDLGZT4-MdYXbMMI',
+    //       appKey: 'yDTo3JsGFGAWKgN3nslMRSXs',
+    //       pageSize: 10,
+    //       placeholder: '有什么建议请告诉我...',
+    //       meta: ['nick', 'mail', 'link'],
+    //       lang: 'zh-CN',
+    //       visitor: true,
+    //       highlight: true,
+    //       avatarForce: false,
+    //       recordIP: true,
+    //       serverURLs: 'https://errd2ef6.api.lncldglobal.com',
+    //       requiredFields: [],
+    //       enableQQ: true,
+    //       avatar: 'monsterid',
+    //       emojiCDN: 'https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/',
+    //       emojiMaps: null,
+    //       path: '<%- frontmatter.to.path %>'
+    //     }
+    //   }
+    // ]
   ]
 }
