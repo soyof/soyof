@@ -13,7 +13,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/soyof/favicon.ico' }],
     ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_4164376_oaddkig8dzb.css' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
-    ['script', { src: 'https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js' }],
+    ['script', { src: 'https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js' }],
     ['script', {}, `
         var _hmt = _hmt || [];
         (function() {
