@@ -9,9 +9,12 @@ const handleBaseUrl = (direct) => {
     if (path.extname(direct) === '.html' || path.extname(direct) === '.js' || path.extname(direct) === '.css') {
       const fileContent = fs.readFileSync(direct, 'utf-8')
       // 替换并将内容写回文件
-      const newFileContent = fileContent.replace(/\/soyof\//g, '/')
+      let newFileContent = fileContent
+      while (newFileContent.includes('/soyof/')) {
+        newFileContent = newFileContent.replace(/\/soyof\//g, '/')
+      }
       fs.writeFileSync(direct, newFileContent, 'utf-8')
-      console.log(chalk.blue(direct), chalk.yellow(newFileContent.includes('/soyof/')))
+      console.log(`替换成功：${chalk.blue(direct)}`)
     }
     return true
   }
