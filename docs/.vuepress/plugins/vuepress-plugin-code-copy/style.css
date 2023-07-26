@@ -1,0 +1,14 @@
+.code-copy-added {
+    position: relative;
+    z-index: 5;
+}
+.code-copy-added .code-copy {
+    display: none;
+}
+
+div[class*="language-"]:hover .code-copy-added .code-copy {
+    display: flex;
+}
+.code-copy-added:hover .code-copy {
+    display: flex;
+}

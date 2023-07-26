@@ -3,6 +3,7 @@
 const { formatDate } = require('./utils/utils')
 const { readEachFileWords } = require('./utils/readFile')
 const { soyofGithub } = require('./global/global')
+const codeCopy = require('./plugins/vuepress-plugin-code-copy')
 
 module.exports = {
   title: 'Soyo.F BLOG',
@@ -11,7 +12,7 @@ module.exports = {
   theme: require.resolve('./plugins/vuepress-theme-vdoing'),
   head: [
     ['link', { rel: 'icon', href: '/soyof/favicon.ico' }],
-    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_4164376_oaddkig8dzb.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_4164376_ydk54yhc7h.css' }],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }],
     ['script', { src: 'https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js' }],
     ['script', {}, `
@@ -120,18 +121,26 @@ module.exports = {
         'thirdparty': [
           // 可选，默认 []
           {
-            title: '在谷歌中搜索',
-            frontUrl: 'https://www.google.com.hk/search?q='
-          },
-          {
             title: '在百度中搜索', // 在搜索结果显示的文字
             frontUrl: 'https://www.baidu.com/s?wd=', // 搜索链接的前面部分
             behindUrl: '' // 搜索链接的后面部分，可选，默认 ''
+          },
+          {
+            title: '在Bing中搜索', // 在搜索结果显示的文字
+            frontUrl: 'https://bing.com/search?q=', // 搜索链接的前面部分
+            behindUrl: '' // 搜索链接的后面部分，可选，默认 ''
+          },
+          {
+            title: '在谷歌中搜索',
+            frontUrl: 'https://www.google.com.hk/search?q='
           }
         ]
       }
     ],
-    ['vuepress-plugin-code-copy', {
+    // ['@vuepress/search', {
+    //   searchMaxSuggestions: 10
+    // }],
+    [codeCopy, {
       align: '1px',
       successText: '复制成功!'
     }
