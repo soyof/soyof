@@ -23,7 +23,9 @@ module.exports = {
           s.parentNode.insertBefore(hm, s);
         })();
       `
-    ]
+    ],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
   themeConfig: {
     isShowReadTime: true,
@@ -77,6 +79,14 @@ module.exports = {
     }
   },
   plugins: [
+    ['@vuepress/pwa', {
+        serviceWorker: true,
+        updatePopup: {
+          message: "发现新内容可用",
+          buttonText: "刷新"
+        }
+      }
+    ],
     {
       name: 'custom-plugins',
       globalUIComponents: ['GlobalTip'] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
