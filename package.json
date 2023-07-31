@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "buildVercel": "node ./script/changeBaseUrl.js",
-    "copyMdToDist": "node ./script/changeMdToDist.js"
+    "buildVercel": "npm run copyDist && node ./script/changeBaseUrl.js",
+    "copyDist": "node ./script/changeDist.js"
   },
   "keywords": [
     "javascript",

@@ -50,33 +50,26 @@ const colorize = (str, color) => {
 const removeFileOrFolder = (fofPath, isTips = true) => {
   // 判断文件夹是否存在
   if (fs.existsSync(fofPath)) {
-    isTips && console.log(`\n-------------------------- ${colorize('START: DELETE FILE OR FOLDER', 'underline')} ---------------------------\n`);
-
+    // isTips && console.log(`\n-------------------------- ${colorize('START: DELETE FILE OR FOLDER', 'underline')} ---------------------------\n`);
     if (fs.statSync(fofPath).isDirectory()) {
-      // 读取文件夹下的文件目录，以数组形式输出
-      fs.readdirSync(fofPath).forEach((file) => {
-        // 拼接路径
-        const curPath = path.join(fofPath, file);
-        // 判断是不是文件夹，如果是，继续递归
-        if (fs.statSync(curPath).isDirectory()) {
+      fs.readdirSync(fofPath).forEach((file) => { // 读取文件夹下的文件目录，以数组形式输出
+        const curPath = path.join(fofPath, file); // 拼接路径
+        if (fs.statSync(curPath).isDirectory()) { // 判断是不是文件夹，如果是，继续递归
           removeFileOrFolder(curPath, isTips);
         } else {
-          // 删除文件或文件夹
-          fs.unlinkSync(curPath);
+          fs.unlinkSync(curPath); // 删除文件或文件夹
           isTips && console.log(`${colorize('已删除：', 'bold')}${colorize(curPath, 'cyan')}`);
         }
       });
-      // 仅可用于删除空目录
-      fs.rmdirSync(fofPath);
+      fs.rmdirSync(fofPath); // 仅可用于删除空目录
       isTips && console.log(`${colorize('已删除：', 'bold')}${colorize(fofPath, 'blue')}`);
     } else {
       fs.unlinkSync(fofPath);
       isTips && console.log(`${colorize('已删除：', 'bold')}${colorize(fofPath, 'cyan')}`);
     }
-
-    isTips && console.log(`\n--------------------------- ${colorize('END: DELETE FILE OR FOLDER', 'underline')} ---------------------------\n\n`);
+    // isTips && console.log(`\n--------------------------- ${colorize('END: DELETE FILE OR FOLDER', 'underline')} ---------------------------\n\n`);
   } else {
-    console.log(`${colorize(`当前路径下文件或文件夹不存在--`, 'red')}${colorize(`${fofPath}`, 'yellow')}`);
+    console.log(`${colorize(`当前在--`, 'red')}${colorize(`${fofPath}`, 'yellow')}`);
   }
 };
 
