@@ -1,6 +1,6 @@
 <template>
   <!-- Young Kbt -->
-  <div class="web-info card-box">
+  <div class="card-box web-info">
     <div class="webinfo-title">
       <i
         class="iconfont icon-zhandianxinxi"
@@ -211,52 +211,10 @@ export default {
 
 <style scoped>
 .web-info {
-  position: relative;
+  //position: relative;
   font-size: 0.875rem;
   padding: 0.95rem;
 }
-.web-info::before, .web-info::after {
-  box-sizing: inherit;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.web-info {
-  transition: color 0.25s;
-}
-.web-info::before, .web-info::after {
-  border: 2px solid transparent;
-  width: 0;
-  height: 0;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.web-info::before {
-  top: 0;
-  left: 0;
-}
-.web-info::after {
-  bottom: 0;
-  right: 0;
-}
-.web-info:hover::before, .web-info:hover::after {
-  width: 100%;
-  height: 100%;
-}
-.web-info:hover::before {
-  border-top-color: #ffd6e7;
-  border-right-color: #ffd6e7;
-  transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
-}
-.web-info:hover::after {
-  border-bottom-color: #ffd6e7;
-  border-left-color: #ffd6e7;
-  transition: border-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s, height 0.15s ease-out 0.45s;
-}
-
 .webinfo-title {
   //text-align: center;
   color: var(--textColor);
@@ -281,10 +239,9 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
+  z-index: 1;
   &:hover {
     transform: scale(1.1);
-    border-radius: 5px;
-    color: #6477b9;
   }
 }
 .webinfo-item-title {
