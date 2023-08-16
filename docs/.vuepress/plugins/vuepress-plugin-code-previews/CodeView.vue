@@ -46,9 +46,7 @@
       v-if="isOnlyShowComp === 'false'"
       @before-enter="handleBeforeEnterOrLeve"
       @enter="handleEnter"
-      @after-enter="handleAfterEnterOrLevel"
       @leave="handleBeforeEnterOrLeve"
-      @after-leave="handleAfterEnterOrLevel"
     >
       <div v-if="showCode" class="code-wrap">
         <slot></slot>
@@ -129,21 +127,16 @@ export default {
       this.showCode = flag
     },
     handleBeforeEnterOrLeve(el) {
-      el.classList.add('code-wrap-transition')
       el.style.height = 0
     },
     handleEnter(el) {
       el.style.height = `${el.scrollHeight}px`
-    },
-    handleAfterEnterOrLevel(el) {
-      el.classList.remove('code-wrap-transition')
     }
   }
 }
 </script>
 
 <style scoped>
-@import "./animate.css";
 .code-view {
   width: 100%;
 }
