@@ -1,5 +1,5 @@
 // const vdoing = require('./plugins/vuepress-theme-vdoing')
-// const codePreview = require('./plugins/vuepress-plugin-code-previews')
+const codePreview = require('./plugins/vuepress-plugin-code-previews')
 const { formatDate } = require('./utils/utils')
 const { readEachFileWords } = require('./utils/readFile')
 const { soyofGithub } = require('./global/global')
@@ -100,7 +100,7 @@ module.exports = {
         return formatDate(timestamp, 'yyyy-MM-dd hh:mm:ss')
       }
     }],
-    ['code-previews', { copyTips: 'copied' }],
+    [codePreview, { copyTips: '复制成功' }],
     [
       'reading-progress',
       {

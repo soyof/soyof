@@ -24,7 +24,7 @@
             enter-active-class="animate__fadeInRight"
             leave-active-class="animate__fadeOutLeft"
           >
-            <span v-if="isShowTips && copytips" class="code-view-tips">{{ copytips }}</span>
+            <span v-if="isShowTips && copyTips" class="code-view-tips">{{ copyTips }}</span>
           </transition>
         </span>
         <span :title="showCode ? '隐藏源码' : '查看源码'">
@@ -42,25 +42,24 @@
         </span>
       </div>
     </div>
-    <transition
-      v-if="isOnlyShowComp === 'false'"
-      @before-enter="handleBeforeEnterOrLeve"
-      @enter="handleEnter"
-      @leave="handleBeforeEnterOrLeve"
-    >
+    <SelfTransition v-if="isOnlyShowComp === 'false'">
       <div v-if="showCode" class="code-wrap">
         <slot></slot>
         <div class="hide-code-btn" @click="handleShowAndHideCode(false)">
           隐藏源码
         </div>
       </div>
-    </transition>
+    </SelfTransition>
   </div>
 </template>
 
 <script>
+import SelfTransition from './selfTransition'
 export default {
   name: 'CodeView',
+  components: {
+    SelfTransition
+  },
   props: {
     title: {
       type: String,
@@ -88,14 +87,14 @@ export default {
         return false
       }
     },
-    copytips: { // 复制成功提示语
+    copyTips: { // 复制成功提示语
       type: String,
       required: false,
       default() {
-        return ''
+        return '复制成功'
       }
     },
-    tipstimes: { // 设置复制成功提示停留时间
+    tipsTimes: { // 设置复制成功提示停留时间
       type: [Number, String],
       required: false,
       default() {
@@ -121,16 +120,10 @@ export default {
       const timer = setTimeout(_ => {
         this.isShowTips = false
         clearTimeout(timer)
-      }, +this.tipstimes || 1000)
+      }, +this.tipsTimes || 1000)
     },
     handleShowAndHideCode(flag) {
       this.showCode = flag
-    },
-    handleBeforeEnterOrLeve(el) {
-      el.style.height = 0
-    },
-    handleEnter(el) {
-      el.style.height = `${el.scrollHeight}px`
     }
   }
 }

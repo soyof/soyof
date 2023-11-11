@@ -4,19 +4,16 @@ const { getComContent, highlightCode, resolveCompName } = require('./utils')
 module.exports = (options, ctx) => {
   return {
     name: 'vuepress-plugins-code-preview',
-    enhanceAppFiles: [
-      path.resolve(__dirname, './enhanceAppFile.js')
-    ],
     plugins: [
       [
         'container',
         {
           type: 'code-preview',
           render(tokens, ids) {
+            const copyTips = options.copyTips
+            const tipsTimes = options.tipsTimes || 2000
             const infoStr = tokens[ids].info
             const infoList = infoStr.split(' ')
-            const copyTips = options.copyTips || '复制成功'
-            const tipsTimes = options.tipsTimes || 1000
             const isOnlyCode = infoStr.includes('--isOnlyShowCode')
             const isOnlyComp = infoStr.includes('--isOnlyShowComp')
             const dirTitle = infoList.find(item => item.includes('--title:')) || ''
@@ -31,9 +28,9 @@ module.exports = (options, ctx) => {
                 return `<div>
                 <CodeView
                   title="${title}"
-                  copytips="${copyTips}"
+                  copyTips="${copyTips || '复制成功'}"
                   isOnlyShowComp="${isOnlyComp}"
-                  tipstimes="${tipsTimes}"
+                  tipsTimes="${tipsTimes || 1000}"
                   code="${encodeURIComponent(code)}"
                 >${newCode}</CodeView>`
               }
@@ -41,9 +38,9 @@ module.exports = (options, ctx) => {
                 <CodeView
                   title="${title}"
                   component="${compName}"
-                  copytips="${copyTips}"
+                  copyTips="${copyTips || '复制成功'}"
                   isOnlyShowComp="${isOnlyComp}"
-                  tipstimes="${tipsTimes}"
+                  tipsTimes="${tipsTimes || 1000}"
                   code="${encodeURIComponent(code)}"
                 >${newCode}</CodeView>`
             }
@@ -51,6 +48,9 @@ module.exports = (options, ctx) => {
           }
         }
       ]
+    ],
+    enhanceAppFiles: [
+      path.resolve(__dirname, './enhanceAppFile.js')
     ]
   }
 }
