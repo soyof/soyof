@@ -64,42 +64,32 @@ export default {
     title: {
       type: String,
       required: false,
-      default: ''
+      default: _ => ''
     },
     code: {
       type: String,
       required: false,
-      default() {
-        return ''
-      }
+      default: _ => ''
     },
     component: {
       type: String,
       required: false,
-      default() {
-        return ''
-      }
+      default: _ => ''
     },
     isOnlyShowComp: {
       type: String,
       required: false,
-      default() {
-        return false
-      }
+      default: _ => false
     },
     copyTips: { // 复制成功提示语
       type: String,
       required: false,
-      default() {
-        return '复制成功'
-      }
+      default: _ => '复制成功'
     },
     tipsTimes: { // 设置复制成功提示停留时间
       type: [Number, String],
       required: false,
-      default() {
-        return 1000
-      }
+      default: _ => 1500
     }
   },
   data() {

@@ -1,17 +1,19 @@
 const path = require('path')
 const { getComContent, highlightCode, resolveCompName } = require('./utils')
-
 module.exports = (options, ctx) => {
   return {
-    name: 'vuepress-plugins-code-preview',
+    name: 'vuepress-plugin-code-previews',
+    enhanceAppFiles: [
+      path.resolve(__dirname, './enhanceAppFile.js')
+    ],
     plugins: [
       [
         'container',
         {
           type: 'code-preview',
           render(tokens, ids) {
-            const copyTips = options.copyTips
-            const tipsTimes = options.tipsTimes || 2000
+            const copyTips = options.copyTips || undefined
+            const tipsTimes = options.tipsTimes || 1000
             const infoStr = tokens[ids].info
             const infoList = infoStr.split(' ')
             const isOnlyCode = infoStr.includes('--isOnlyShowCode')
@@ -28,9 +30,9 @@ module.exports = (options, ctx) => {
                 return `<div>
                 <CodeView
                   title="${title}"
-                  copyTips="${copyTips || '复制成功'}"
+                  copyTips="${copyTips}"
                   isOnlyShowComp="${isOnlyComp}"
-                  tipsTimes="${tipsTimes || 1000}"
+                  tipsTimes="${tipsTimes}"
                   code="${encodeURIComponent(code)}"
                 >${newCode}</CodeView>`
               }
@@ -38,9 +40,9 @@ module.exports = (options, ctx) => {
                 <CodeView
                   title="${title}"
                   component="${compName}"
-                  copyTips="${copyTips || '复制成功'}"
+                  copyTips="${copyTips}"
                   isOnlyShowComp="${isOnlyComp}"
-                  tipsTimes="${tipsTimes || 1000}"
+                  tipsTimes="${tipsTimes}"
                   code="${encodeURIComponent(code)}"
                 >${newCode}</CodeView>`
             }
@@ -48,9 +50,6 @@ module.exports = (options, ctx) => {
           }
         }
       ]
-    ],
-    enhanceAppFiles: [
-      path.resolve(__dirname, './enhanceAppFile.js')
     ]
   }
 }
